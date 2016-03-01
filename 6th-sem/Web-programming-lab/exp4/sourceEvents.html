@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>JavaScript</title>
+		<script type="text/javascript">
+			function myFirst()
+			{
+				var x = document.getElementById("fname").value;
+				document.getElementById("demo").innerHTML = x.toUpperCase();			
+			}
+			function mover(obj)
+			{
+				obj.innerHTML = "Mouse On";
+			}
+			function mout(obj)
+			{
+				obj.innerHTML = "Mouse out";
+			}
+			function mup(obj)
+			{
+				obj.innerHTML = "Locked";
+			}
+			function mdown(obj)
+			{
+				obj.innerHTML = "Released";
+			}
+			function myfun(obj)
+			{
+				obj.style.background = "yellow";
+			}
+		</script>
+	</head>
+	<body onload="alert('welcome')"; onunload="alert('bye')";>
+		<button onclick = "this.innerHTML='OOPS'">click</button>
+		<h1>Enter Your Name:</h1>
+		<input type="text" id="fname" onChange="myFirst()">
+		<p id = "demo"></p>
+		<div onmouseover="mover(this)" onmouseout="mout(this)"><h1><center>Mouse over Me</center></h1></div>
+		<input type = "text" onfocus="myfun(this)"></input>
+		<div onmouseup="mup(this)" onmousedown="mdown(this)"><h1><center>Mouse Up and Down</center></h1></div>
+	</body>
+</html>

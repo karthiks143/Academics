@@ -1,0 +1,83 @@
+<html>
+<head>
+	<title>	
+		JS Events
+	</title>
+	<style type="text/css">
+		body
+		{
+			background-color: #ffff66;
+		}
+	</style>
+	<script type="text/javascript">
+		function mOnClick() 
+		{
+	    	if(document.getElementById("p5").src.match("p5.jpg"))
+	    		document.getElementById("p5").src="p1.jpg";
+	    	else
+	    		document.getElementById("p5").src="p5.jpg";
+		}
+		function checkAvailability()
+		{
+			var item = document.getElementById("item");
+			var str = item.value; 
+			//window.alert(item.value);
+			//window.alert(str.localeCompare("CheesePizza"));
+			if(str.localeCompare("Metacin")==0)
+			{
+				document.getElementById("availability").style.color = "red";
+				document.getElementById("availability").innerHTML = "Sorry, Not Available..!";
+			}
+			else
+			{
+				document.getElementById("availability").style.color = "green";
+				document.getElementById("availability").innerHTML = "Yes, Available..!";	
+			}
+
+		}
+		function checkQuantity()
+		{
+			var item = document.getElementById("item");
+			var str = item.value; 
+			if(document.getElementById("qty").value<10 && (str.localeCompare("Metacin")!=0))
+			{
+				document.getElementById("quantity").style.color = "green";
+				document.getElementById("quantity").innerHTML = "Yes, Available..!";
+			}
+			else
+			{
+				document.getElementById("quantity").style.color = "red";
+				document.getElementById("quantity").innerHTML = "Sorry, Not Available..!";	
+			}
+
+		}
+		function focusQty()
+		{
+			document.getElementById("qty").style.background="#a3c2c2";
+		}
+	</script>
+</head>
+<body onload="alert('Welcome to Madurai Medicals...!')"; onunload="alert('bye')";>
+	<br><br><br>
+	<center>
+		<h1><b><i>Madurai Medicals</i></b></h1>
+		<br><br><br>
+		<img id="p5" src="p5.jpg" alt="" height=400 width=400 onclick="mOnClick()">
+		</img>
+		<br><br><br>
+		<fieldset width="100">
+			<h2>
+			<label>Enter the Item</label>&nbsp&nbsp&nbsp&nbsp
+			<input id="item" type="text" onchange="checkAvailability()">
+			<b><label id="availability" style="color:blue;">Availablity</label></b>
+			</input>
+			<br><br>
+			<label>Enter the Qty.</label>&nbsp&nbsp&nbsp&nbsp&nbsp
+			<input id="qty" type="text" onfocus="focusQty()" onchange="checkQuantity()">
+			<b><label id="quantity" style="color:blue;">Availablity</label></b>
+			</input>
+			</h2>
+		</fieldset>
+	</center>
+</body>
+</html>
