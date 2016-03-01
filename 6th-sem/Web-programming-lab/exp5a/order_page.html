@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+        function validate()
+        {
+            var name=document.forms["myform"]["med_name"].value;
+            var quantity=document.forms["myform"]["quan"].value;
+            var y=false;
+            var rate=["6","12","5","10","50","10","30","20"];
+            var avail=["Crocin","Paracetamol","Delcon","Ciprobid","BP tablet","Stress","Pulse maintainer","Low BP"];
+            var x = name;
+            if (x == null || x == "")
+            {
+                alert(" Medicine name must be filled out");
+            }
+            else
+            {
+                var price;
+                var abc,total;
+                for(var i=0;i<avail.length;i++)
+                {
+                    if(avail[i]==x)
+                    {
+                        y=true;
+                        price=rate[i];
+                        if(y===true)
+                        {
+                            abc="Available";
+                        }
+                        else
+                        {
+                            abc="Not Available";
+                        }
+                        price=parseInt(price);
+                        total=price*parseInt(quantity);
+                        alert("Med name :"+name+"\nAvailability: "+abc+"\nQuantity :"+quantity+"\nPrice :"+price+"\nTotal amnt :"+total);
+                        break;
+                    }           
+                }
+                //alert("Med name :"+name+"\nAvailability: "+abc+"\nQuantity :"+quantity+"\nPrice :"+price+"\nTotal amnt :"+total);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <center>
+        <h1 style="font-family:Monotype Corsiva; color:red">Select The Item What You Want</h1>
+        <table>
+            <tr>
+                <td><img src="images/medicines.jpg" width="250" height="200"></td>
+                <td><img src="images/medicines-01.jpeg" width="250" height="200"></td>
+                <td><img src="images/Drugs+pills+medicine+XXX+high+res.jpg" width="250" height="200"></td>
+                <td><img src="images/cheaper_medicines.jpg" width="250" height="200"></td>
+            </tr>
+        </table>
+        <form name="myform" >
+            <label>Medicine Name</label>&nbsp;
+            <input type="text" name="med_name"><br /><br />
+            <label>Quantity</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="quan"><br /><br />
+            <label>Address</label>&nbsp;&nbsp;&nbsp;
+            <textarea></textarea><br /><br />
+            <label>Area Code</label>&nbsp;
+            <input type="text"><br /><br />
+            <button onclick="validate(myform)">Click me</button>
+        </form>
+    </center>
+</body>
+</html>
